@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.pyc
+
+# Virtual environment
+venv/
+env/
+
+# Django secrets
+*.env
+.env
+
+# VSCode, PyCharm, etc.
+.vscode/
+.idea/
+
+# Migrations (ixtiyoriy, agar siz ulardan nusxa olmoqchi bo‘lmasangiz)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+*/migrations/*.pyo
+*/migrations/*.log
+
+# Media files (agar siz fayl yuklash ishlatsangiz)
+media/
+
+# Static files (agar `collectstatic` ishlatilgan bo‘lsa)
+staticfiles/
+static/
+
+# Requirements
+pip-log.txt
+
+# MacOS va Linux specific
+.DS_Store
