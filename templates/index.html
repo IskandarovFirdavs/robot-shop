@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,6 +140,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
     }
 
     .logo {
@@ -169,6 +171,10 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+    }
+
+    nav {
+      margin-left: auto;
     }
 
     nav ul {
@@ -212,6 +218,7 @@
       color: var(--text-primary);
       font-size: 1.5rem;
       cursor: pointer;
+      margin-left: auto;
     }
 
     /* Hero Section */
@@ -359,6 +366,9 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
       transform-style: preserve-3d;
       perspective: 1000px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .product-card:hover {
@@ -405,22 +415,15 @@
     .product-info {
       padding: 1.5rem;
       position: relative;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .product-title {
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
       color: var(--text-primary);
-    }
-
-    .product-description {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
 
     .product-price {
@@ -437,6 +440,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: auto;
     }
 
     .product-category {
@@ -445,178 +449,6 @@
       background: rgba(255, 255, 255, 0.05);
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(5, 5, 16, 0.9);
-      z-index: 2000;
-      overflow: auto;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .modal.active {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 1;
-    }
-
-    .modal-content {
-      background: var(--card-bg);
-      width: 90%;
-      max-width: 1000px;
-      border-radius: 20px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      max-height: 90vh;
-      animation: modalIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 30px rgba(0, 247, 255, 0.2);
-    }
-
-    @keyframes modalIn {
-      from {
-        transform: translateY(50px) scale(0.9);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .modal-title {
-      font-size: 1.8rem;
-      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .close-modal {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-secondary);
-      transition: var(--transition);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .close-modal:hover {
-      color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .modal-body {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      overflow-y: auto;
-    }
-
-    @media (min-width: 768px) {
-      .modal-body {
-        flex-direction: row;
-      }
-    }
-
-    .modal-image {
-      flex: 1;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .modal-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .modal-image::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0, 247, 255, 0.1), rgba(255, 0, 229, 0.1));
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    .modal-details {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .modal-price {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin: 1rem 0;
-    }
-
-    .modal-description {
-      margin-bottom: 2rem;
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    .modal-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .modal-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 1rem;
-      margin-top: auto;
     }
 
     /* Responsive Styles */
@@ -628,6 +460,11 @@
     }
 
     @media (max-width: 768px) {
+      nav {
+        margin-left: 0;
+        position: relative;
+      }
+
       nav ul {
         display: none;
         position: absolute;
@@ -836,12 +673,12 @@
   <header id="header">
     <div class="container header-container">
       <a href="#" class="logo">NOVA<span>.</span></a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
       <nav>
         <ul id="navMenu">
           <li><a href="#products">Collection</a></li>
         </ul>
       </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
     </div>
   </header>
 
@@ -854,8 +691,7 @@
         <a href="#products" class="btn btn-primary btn-pulse">Explore Collection</a>
       </div>
     </div>
-    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Futuristic abstract shape" class="hero-image">
-  </section>
+<img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Futuristic abstract shape" class="hero-image">  </section>
 
   <!-- Products Section -->
   <section id="products">
@@ -873,56 +709,34 @@
       <div class="products-grid" id="productsGrid">
         <!-- Django Template Loop for Products -->
         {% for product in products %}
-        <div class="product-card holographic" data-id="{{ product.id }}" data-category="{{ product.category.name|lower }}">
+        <div class="product-card holographic" data-category="{{ product.category.name|lower }}">
           <div class="product-image-container">
             <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
           </div>
           <div class="product-info">
             <h3 class="product-title">{{ product.title }}</h3>
-            <p class="product-description">{{ product.description }}</p>
             <div class="product-price">${{ product.price }}</div>
             <div class="product-meta">
               <span class="product-category">{{ product.category.name }}</span>
-              <button class="btn view-product-btn" data-id="{{ product.id }}">View</button>
+              <a href="#" class="btn">View</a>
             </div>
           </div>
         </div>
         {% endfor %}
       </div>
-      
+
       <div class="glow-line"></div>
     </div>
   </section>
 
-  <!-- Product Modal -->
-  <div class="modal" id="productModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="modalTitle">Product Title</h3>
-        <button class="close-modal" id="closeModal">×</button>
-      </div>
-      <div class="modal-body" id="modalBody">
-        <!-- Modal content will be dynamically inserted here -->
-      </div>
-      <div class="modal-actions">
-        <button class="btn">View Details</button>
-      </div>
-    </div>
-  </div>
-
   <script>
     // DOM Elements
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const productModal = document.getElementById('productModal');
-    const closeModal = document.getElementById('closeModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
     const header = document.getElementById('header');
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
     const floatingDots = document.getElementById('floatingDots');
     const productCards = document.querySelectorAll('.product-card');
-    const viewProductBtns = document.querySelectorAll('.view-product-btn');
 
     // Create floating dots
     function createFloatingDots() {
@@ -941,77 +755,20 @@
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
         const filter = button.getAttribute('data-filter');
-        
+
         // Update active button
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-        
+
         // Filter products
         productCards.forEach(card => {
           if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.style.display = 'block';
+            card.style.display = 'flex';
           } else {
             card.style.display = 'none';
           }
         });
       });
-    });
-
-    // Open product modal
-    viewProductBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const productId = btn.getAttribute('data-id');
-        openProductModal(productId);
-      });
-    });
-
-    // Open product modal function
-    function openProductModal(productId) {
-      // In Django, we'd fetch the product details from the server
-      // For this template, we'll use a simple approach to get the product data from the DOM
-      const productCard = document.querySelector(`.product-card[data-id="${productId}"]`);
-      
-      if (!productCard) return;
-      
-      const title = productCard.querySelector('.product-title').textContent;
-      const description = productCard.querySelector('.product-description').textContent;
-      const price = productCard.querySelector('.product-price').textContent;
-      const category = productCard.querySelector('.product-category').textContent;
-      const image = productCard.querySelector('.product-image').getAttribute('src');
-      
-      modalTitle.textContent = title;
-      
-      modalBody.innerHTML = `
-        <div class="modal-image">
-          <img src="${image}" alt="${title}">
-        </div>
-        <div class="modal-details">
-          <div class="modal-price">${price}</div>
-          <p class="modal-description">${description}</p>
-          <div class="modal-meta">
-            <div class="modal-meta-item">
-              <strong>Category:</strong> ${category}
-            </div>
-          </div>
-        </div>
-      `;
-      
-      productModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    // Close modal
-    closeModal.addEventListener('click', () => {
-      productModal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-
-    // Close modal when clicking outside
-    productModal.addEventListener('click', (e) => {
-      if (e.target === productModal) {
-        productModal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
     });
 
     // Header scroll effect
@@ -1032,14 +789,14 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
           // Close mobile menu if open
           navMenu.classList.remove('active');
-          
+
           window.scrollTo({
             top: targetElement.offsetTop - 80,
             behavior: 'smooth'
